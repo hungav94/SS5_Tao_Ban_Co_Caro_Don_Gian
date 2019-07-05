@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo bàn cờ caro đơn giản</title>
+    <style>
+        td {
+            border: 1px solid black;
+        }
+
+        input {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+<h1>Caro game simple</h1>
+<p id="carogame"/>
+<button value="Change value" onclick="changeValue()">Change value</button>
+<script>
+    let b = document.getElementById('carogame');
+    let board = [];
+    let data = '';
+
+    //Hiển thị bàn cờ
+    for (let i = 0; i < 5; i++) {
+        board[i] = new Array(0, 0, 0, 0, 0);
+    }
+    for (let i = 0; i < 5; i++) {
+        data += '<br>';
+        for (let j = 0; j < 5; j++) {
+            data += board[i][j] + "&emsp;";
+        }
+    }
+    data += '<br><br><button value="Change value" onclick="changeValue()">Change value</button>';
+    b.innerHTML = data;
+
+    //Xử lý sự kiện khi người dùng click chuột vào nút 'Change value'
+    function changeValue() {
+        let positionX = prompt('X:');
+        let positionY = prompt('Y:');
+        data = '';
+        board[positionX][positionY] = 'x';
+        for (let i = 0; i < 5; i++) {
+            data += '<br>';
+            for (let j = 0; j < 5; j++) {
+                data += board[i][j] + '&emsp;';
+            }
+        }
+        data += '<br><br><button value="Change value" onclick="changeValue()">Change value</button>';
+        b.innerHTML = '<hr>' + data;
+    }
+
+    // let b = document.getElementById('carogame');
+    // let board = [];
+    // let data = '<table>';
+    // for (let i = 0; i < 5; i++) {
+    //     board[i] = '<input type="button" onclick="changeValue()" value=""/>';
+    // }
+    //
+    // for (let i = 0; i < 5; i++) {
+    //     data += '<tr>';
+    //     for (let j = 0; j < 5; j++) {
+    //         data += '<td>' + board[i] + '</td>';
+    //     }
+    // }
+    // data += '</table>';
+    // b.innerHTML = data;
+    //
+    // function changeValue() {
+    //     // let positionX = x;
+    //     // let positionY = y;
+    //     // let count = 0;
+    //     // for (let i = 0; i < 5; i++) {
+    //     //     data += '<tr>';
+    //     //     positionX = i;
+    //     //     for (let j = 0; j < 5; j++) {
+    //     //         positionY = j;
+    //     //         if ()
+    //     //         data += board[i][j]
+    //     //     }
+    //     // }
+    // }
+</script>
+</body>
+</html>
